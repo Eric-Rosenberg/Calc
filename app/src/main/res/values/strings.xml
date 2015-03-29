@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Week 2 - Pretty</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="bytes"> Bytes</string>
+    <string name="mega"> MegaBytes</string>
+    <string name="kilo"> KiloBytes</string>
+    <string name="button1">Convert to Bytes</string>
+    <string name="button2">Convert to kiloBytes</string>
+    <string name="button3">Convert to megaBytes</string>
+    <string name="error">Please Enter A Number</string>
+    <string name="title_activity_calculator">Calculator</string>
+
+</resources>
