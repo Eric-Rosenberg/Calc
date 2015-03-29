@@ -25,7 +25,9 @@ public class Calculator extends ActionBarActivity implements View.OnClickListene
     private String number1 = "";
     private String currentNumber = "";
     private String number2 = "";
+    private String operation = "";
     private Button plus;
+    private boolean first = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -93,10 +95,13 @@ public class Calculator extends ActionBarActivity implements View.OnClickListene
             case R.id.buttonCls: getNum.setText("");
                 number1 = "";
                 number2 = "";
+                currentNumber = "";
+                operation = "";
                 result.setText("");
                 break;
-            case R.id.buttonPlus: setText(currentNumber,'+');
-                operation(v);
+            case R.id.buttonPlus: operation(v);
+                currentNumber = "";
+                getNum.setText("");
                 break;
             case R.id.change: Intent i = new Intent(this,MainActivity.class);
                 startActivity(i);
@@ -106,15 +111,18 @@ public class Calculator extends ActionBarActivity implements View.OnClickListene
     private void operation(View v){
         switch (v.getId()){
             case R.id.buttonPlus:
+                operation = "+";
                 break;
         }
-        if(currentNumber.equals(number1)){
-            currentNumber = number2;
+        if(first){
+            first = !first;
+            currentNumber = number1;
             Log.d("MAIN","number 2");
         }
         else
+            first = !first;
             Log.d("MAIN","number 1");
-            currentNumber = number1;
+            currentNumber = number2;
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
@@ -141,7 +149,21 @@ public class Calculator extends ActionBarActivity implements View.OnClickListene
     }
 
     public void setText(String input, char x){
-        currentNumber = input + x;
+        if(first) {
+            number1 = input + x;
+            currentNumber = input + x;
+        }
+        if(!first) {
+            number2 = input + x;
+            currentNumber = input + x;
+        }
         getNum.setText(currentNumber);
+        if(!number1.equals("") && !number2.equals("")) {
+            Integer res = convertNum(number1) + convertNum(number2);
+            result.setText(res.toString());
+        }
+    }
+    Integer convertNum(String number){
+        return Integer.valueOf(number);
     }
 }
