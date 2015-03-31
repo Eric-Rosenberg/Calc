@@ -12,5 +12,6 @@
     <string name="button3">Convert to megaBytes</string>
     <string name="error">Please Enter A Number</string>
     <string name="title_activity_calculator">Calculator</string>
+    <string name="back">Del</string>
 
 </resources>

@@ -100,7 +100,6 @@
         android:layout_height="wrap_content"
         android:paddingLeft="16dp"
         android:layout_gravity="center"
-        android:layout_marginLeft="-36dp"
         tools:context=".MainActivity"
         android:orientation="horizontal">
 
@@ -120,7 +119,13 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:text="Cls"
+            android:text="@string/back"
+            android:id="@+id/buttonBksp" />
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:text="Clear"
             android:id="@+id/buttonCls" />
         </LinearLayout>
 

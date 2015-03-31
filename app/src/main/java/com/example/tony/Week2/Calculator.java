@@ -20,7 +20,7 @@ public class Calculator extends ActionBarActivity implements View.OnClickListene
     private TextView result;
     private RadioGroup rGroup;
     private EditText getNum;
-    private Button b1, b2, b3,b4,b5,b6,b7,b8,b9,b0,cls;
+    private Button b1, b2, b3,b4,b5,b6,b7,b8,b9,b0,cls,bksp;
     private ImageButton change;
     private String number1 = "";
     private String currentNumber = "";
@@ -49,6 +49,7 @@ public class Calculator extends ActionBarActivity implements View.OnClickListene
         b0 = (Button)findViewById(R.id.button0);
         cls = (Button)findViewById(R.id.buttonCls);
         plus = (Button)findViewById(R.id.buttonPlus);
+        bksp =(Button)findViewById(R.id.buttonBksp);
 
         change = (ImageButton)findViewById(R.id.change);
 
@@ -67,6 +68,7 @@ public class Calculator extends ActionBarActivity implements View.OnClickListene
         b0.setOnClickListener(this);
         cls.setOnClickListener(this);
         plus.setOnClickListener(this);
+
 
         change.setOnClickListener(this);
     }
@@ -105,6 +107,8 @@ public class Calculator extends ActionBarActivity implements View.OnClickListene
                 break;
             case R.id.change: Intent i = new Intent(this,MainActivity.class);
                 startActivity(i);
+                break;
+            case R.id.buttonBksp:
                 break;
         }
     }

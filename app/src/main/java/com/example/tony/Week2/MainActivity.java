@@ -19,17 +19,18 @@ import android.widget.TextView;
 public class MainActivity extends ActionBarActivity implements View.OnClickListener
 {
     private TextView result;
-    private RadioGroup convertMethod;
-    private RadioGroup rGroup;
     private RadioButton button1,button2,button3, checkedRadioButton;
     private EditText getNum;
-    private Button b1, b2, b3,b4,b5,b6,b7,b8,b9,b0,cls;
     private ImageButton change;
     private String text = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+        Button b1, b2, b3,b4,b5,b6,b7,b8,b9,b0,cls,del;
+        ImageButton change;
+        RadioGroup rGroup;
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         result = (TextView)findViewById(R.id.result);
@@ -46,6 +47,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         b9 = (Button)findViewById(R.id.button9);
         b0 = (Button)findViewById(R.id.button0);
         cls = (Button)findViewById(R.id.buttonCls);
+        del = (Button)findViewById(R.id.buttonBksp);
 
         change = (ImageButton)findViewById(R.id.change);
 
@@ -71,6 +73,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         b9.setOnClickListener(this);
         b0.setOnClickListener(this);
         cls.setOnClickListener(this);
+        del.setOnClickListener(this);
 
         change.setOnClickListener(this);
 
@@ -132,6 +135,22 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 break;
             case R.id.change: Intent i = new Intent(MainActivity.this,Calculator.class);
                 startActivity(i);
+                break;
+            case R.id.buttonBksp:
+                if(getNum.getText().toString().equals(""))
+                    ;
+                else {
+                    getNum.setText(getNum.getText().toString().substring(0, getNum.length() - 1));
+                    text = getNum.getText().toString();
+
+                    if (button1 == checkedRadioButton) {
+                        convertMethod(1);
+                    } else if (button2 == checkedRadioButton) {
+                        convertMethod(2);
+                    } else if (button3 == checkedRadioButton) {
+                        convertMethod(3);
+                    }
+                }
                 break;
         }
     }
