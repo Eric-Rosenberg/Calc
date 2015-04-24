@@ -172,9 +172,9 @@
     <ImageButton
         style="?android:attr/borderlessButtonStyle"
         android:id="@+id/change"
-        android:src="@drawable/change"
+        android:src="@drawable/button_focused"
         android:scaleType="fitCenter"
         android:adjustViewBounds="true"
-        android:layout_width="100dp"
-        android:layout_height="100dp" />
+        android:layout_width="50dp"
+        android:layout_height="50dp" />
 </LinearLayout>
